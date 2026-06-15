@@ -1,0 +1,12 @@
+appName: flask-app
+
+replicas: 2
+
+image:
+  repository: pain0383/flask-app
+  tag: latest
+
+service:
+  port: 80
+  targetPort: 5000
+  type: NodePort
