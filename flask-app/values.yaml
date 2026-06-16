@@ -1,6 +1,6 @@
 appName: flask-app
 
-replicas: 2
+replicas: 3
 
 image:
   repository: pain0383/flask-app
