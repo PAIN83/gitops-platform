@@ -15,7 +15,7 @@ jobs:
       - run:
           name: Push to Docker Hub
           command: |
-            echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+            echo "$DOCKERHUB_PASSWORD" | docker login -u "pain0383" --password-stdin
             docker push pain0383/flask-app:latest
 
 workflows:
