@@ -11,7 +11,7 @@ jobs:
       - run:
           name: Build Docker image
           command: |
-            docker build -t pain0383/flask-app:latest ./02-cicd-pipeline
+            docker build -t pain0383/flask-app:latest .
       - run:
           name: Push to Docker Hub
           command: |
