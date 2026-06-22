@@ -1,0 +1,53 @@
+version: 2.1
+
+jobs:
+  build-and-push:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - setup_remote_docker:
+          version: default
+      - run:
+          name: Build Docker image
+          command: |
+            docker build -t pain0383/flask-app:latest ./02-cicd-pipeline
+      - run:
+          name: Push to Docker Hub
+          command: |
+            echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+            docker push pain0383/flask-app:latest
+
+workflows:
+  build-and-push:
+    jobs:
+      - build-and-push:
+          filters:
+            branches:
+              only: masterversion: 2.1
+
+jobs:
+  build-and-push:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - setup_remote_docker:
+          version: default
+      - run:
+          name: Build Docker image
+          command: |
+            docker build -t pain0383/flask-app:latest ./02-cicd-pipeline
+      - run:
+          name: Push to Docker Hub
+          command: |
+            echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+            docker push pain0383/flask-app:latest
+
+workflows:
+  build-and-push:
+    jobs:
+      - build-and-push:
+          filters:
+            branches:
+              only: master
