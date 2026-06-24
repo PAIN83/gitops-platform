@@ -44,22 +44,14 @@ Developer pushes code to GitHub
 ---
 
 ## Project Structure
-## Project Structure
 
-gitops-platform/
-├── .circleci/
-│   └── config.yml          # CircleCI pipeline
-├── flask-app/              # Helm chart
-│   ├── Chart.yaml
-│   ├── values.yaml
-│   └── templates/
-│       ├── deployment.yaml
-│       └── service.yaml
-├── k8s/                    # Raw manifests from Phase 1
-├── eks/                    # EKS Terraform architecture
-├── app.py                  # Flask app
-├── Dockerfile
-└── requirements.txt
+The repository is organized by phase. Each folder represents one layer of the platform.
+
+- **.circleci/** — CircleCI pipeline config that triggers on every push to master
+- **flask-app/** — Helm chart containing templates and values.yaml
+- **k8s/** — Raw Kubernetes manifests used in Phase 1 before Helm was introduced
+- **eks/** — Terraform code for the AWS EKS production architecture
+- **app.py, Dockerfile, requirements.txt** — The Flask application and container definition
 
 ---
 
