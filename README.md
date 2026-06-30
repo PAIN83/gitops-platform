@@ -52,7 +52,8 @@ The repository is organized by phase. Each folder represents one layer of the pl
 - **k8s/** — Raw Kubernetes manifests used in Phase 1 before Helm was introduced
 - **eks/** — Terraform code for the AWS EKS production architecture
 - **app.py, Dockerfile, requirements.txt** — The Flask application and container definition
-
+- **argocd-app.yaml** — ArgoCD Application resource that tells ArgoCD which 
+  GitHub repo and Helm chart to watch, and where to deploy in the cluster
 ---
 
 ## Phases
